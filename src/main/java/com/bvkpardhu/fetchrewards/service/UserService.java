@@ -39,10 +39,10 @@ public class UserService {
                     Collections.sort(al, new SortComp());
                 return "Successfully uploaded!";
             } catch (Exception e) {
-                return "Error";
+                return "Error!, check the input format from readme";
             }
         }
-        return "Error";
+        return "Error!, check the input format from readme";
     }
 
     public HashMap<String,Integer> balance() {
