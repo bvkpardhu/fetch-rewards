@@ -26,14 +26,18 @@ public class UserService {
                 int balance =0;
                 for (Object i : jsonArray) {
                     JSONObject temp = (JSONObject) i;
+                    if(temp.getString("payer").equals("")) {
+                        throw new Exception();
+                    }
+                    int points = Integer.parseInt(temp.get("points").toString());
                     Date date = formatter.parse(temp.getString("timeStamp"));
                     String strDate = formatter.format(date);
-                    user = new User(strDate, temp.getString("payer"), temp.getInt("points"));
-                    al.add(user);
+                    user = new User(strDate, temp.getString("payer"), points);
                     if(hm.get(user.getPayer())==null) hm.put(user.getPayer(),0);
                     balance = hm.get(user.getPayer())+ user.getPoints();
                     if(balance<0) return "Error";
                     hm.put(user.getPayer(),balance);
+                    al.add(user);
                 }
                 if(al.size()>1)
                     Collections.sort(al, new SortComp());
@@ -78,12 +82,12 @@ public class UserService {
         }
         return pointsSub;
     }
-    public void updateBalance(){
+    public void updateBalance() {
         totalBalance = 0;
         negBalance = new HashMap<>();
         hm = new HashMap<>();
-        for(User user : al){
-            if(user.getPoints()<0) {
+        for (User user : al) {
+            if (user.getPoints() < 0) {
                 if (negBalance.get(user.getPayer()) == null) {
                     negBalance.put(user.getPayer(), 0);
                 }
@@ -95,10 +99,6 @@ public class UserService {
             hm.put(user.getPayer(), hm.get(user.getPayer()) + user.getPoints());
             totalBalance += user.getPoints();
         }
-    }
-
-    public ArrayList<User> getTransactions() {
-        return al;
     }
 
 }

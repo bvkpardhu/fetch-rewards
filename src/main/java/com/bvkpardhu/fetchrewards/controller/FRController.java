@@ -26,7 +26,7 @@ public class FRController {
             return userService.upload(user);
         }
         catch(Exception e) {
-            return "Error";
+            return "Error!, check the input format from readme";
         }
         finally {
             userService.updateBalance();
@@ -42,11 +42,6 @@ public class FRController {
     @GetMapping("/points/{points}")
     public LinkedHashMap<String,Integer> updatePoints(@PathVariable int points) {
         return userService.updatePoints(points);
-    }
-
-    @GetMapping("/al")
-    public ArrayList<User> getTransactions() {
-        return userService.getTransactions();
     }
 
 }
