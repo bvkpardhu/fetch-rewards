@@ -1,9 +1,9 @@
-#Software Requirements
+# Software Requirements
 * Java 11 (https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 * Visual Studio Code IDE (https://code.visualstudio.com/)
 * Postman API client (https://www.postman.com/downloads/)
 
-#Setup Process
+# Setup Process
 After installing the Visual Studio Code IDE, open it and clone the project by clicking on the **clone repository...** link on the welcome page of the IDE.
 
 By clicking on the **clone repository...** link a search box will pop on the top. In that search box, you need to enter **https://github.com/bvkpardhu/fetch-rewards** and then press Enter. It will ask you to select a destination directory to store the repository (select a directory in your system).
@@ -20,7 +20,7 @@ That's it now your project setup is completed.
 
 (Note: If the notification dialog doesn't pop for you in any case, click on the **notification bell icon** tab on the bottom right-hand corner of the IDE.)
 
-#Running the project
+# Running the project
 In the IDE navigate to **src/main/java/com/bvkpardhu/fetchrewards/FetchRewardsApplication.java** file and click on the **play icon button** on the right-hand top corner. The project will start on port **8080**.
 
 Now open the Postman API client and paste **http://localhost:8080/fetch-rewards/** in the URL.
